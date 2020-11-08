@@ -1,1 +1,64 @@
-YELP
+
+Developed a prototype of yelp website as a Lab 2 using MERN stack and Kafka Messaging Queue.
+
+Following steps can be used to start the project
+
+Clone the repository.
+
+Run npm install after entering inside each of the following directories
+Back-end
+front-end
+kafka-backend
+
+Create a cluster on MongoDB and provides it details in the config file in the kakfa-backend folder.
+
+Create config and .env files as described below with appropriate values and place at specified files for each service.
+
+For front-end:
+config.js file place inside directory front-end/src:- 
+  const serverUrl = '<Backend url with port>';
+
+  export default serverUrl;
+
+For Back-end:
+config.js file place inside directory Back-end:- 
+  const config = {};
+
+  config.frontEndUrl = '<Frontend url with port>';
+  config.kafkaZookeeper = '<kafka url with port>';
+  config.kafkacommontopic = '<request1>';
+  config.kafkastatictopic = '<request1>';
+  config.kafkacustomertopic = '<request1>';
+  config.kafkaresturanttopic = '<request1>';
+  config.SESSION_SECRET = '<your secret>';
+  module.exports = config;
+  
+ For kafka-backend:
+config.js file place inside directory kafka-backend:- 
+  const config = {};
+
+  config.frontEndUrl = '<Frontend url with port>';
+  config.kafkaZookeeper = '<kafka url with port>';
+  config.kafkacommontopic = '<request1>';
+  config.kafkastatictopic = '<request1>';
+  config.kafkacustomertopic = '<request1>';
+  config.kafkaresturanttopic = '<request1>';
+  config.SESSION_SECRET = '<your secret>';
+  module.exports = config;
+  
+ config.js file place inside directory kafka-backend/Models:- 
+  const config = {
+  mongoDB:
+    '<Mongo db cluster connection url>',
+};
+
+module.exports = config;
+
+
+Follow the below steps to run the project
+
+Start Zookeeper and Kafka server.
+Create the required topics same as specified in config file
+Start kafka-backend using command node server.js
+Start Back-end using command node index.js
+Start front-end using command npm start.
